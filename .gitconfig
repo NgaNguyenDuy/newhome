@@ -1,0 +1,14 @@
+[user]
+	email = kyo1508@gmail.com
+	name = NgaNguyenDuy
+
+[alias]
+	a  = add
+	st = status
+	ca = commit -am
+	ci = commit
+	br = branch
+	co = checkout
+	df = diff
+    del = rm --cached
+    last = log -l HEAD

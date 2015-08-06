@@ -1,0 +1,199 @@
+!!urxvt config
+
+!URxvt.perl-ext-common : default,keyboard-select,url-select,clipboard
+!Urxvt.perl-ext-common: default, selection-to-clipboard
+
+! URxvt.keysym.M-x           : perl:keyboard-select:activate
+! URxvt.keysym.M-u           : perl:url-select:select_next
+! URxvt.keysym.M-c           : perl:clipboard:copy
+! URxvt.keysym.M-v           : perl:clipboard:paste
+! URxvt.keysym.M-s           : perl:keyboard-select:search
+! URxvt.keysym.M-C-v         : perl:clipboard:paste_escaped
+! URxvt.url-select.launcher  : firefox
+! URxvt.url-select.autocopy  : true
+! URxvt.url-select.underline : true
+
+!Disabled perl
+! URxvt.perl-ext:
+! URxvt.perl-ext-common:
+
+URxvt.urlLauncher: firefox
+
+! URxvt.font        : xft:Monaco:size=10
+URxvt.font        : xft:Consolas:size=13
+!URxvt.boldFont: xft:Consolas:style=Bold
+!URxvt.boldItalicFont: xft:DejaVu Sans Mono:style=Bold Oblique
+!URxvt.font	  : xft:Droid Sans Mono for Powerline:size=12
+! Urxvt.font	  : xft:Inconsolata:size=10:antialias=false
+! URxvt.font     : xft:Andale Mono:size=10:antialias=false
+!URxvt.font   : xft:Monaco for Powerline:size=12
+! URxvt.font:     xft:bitstream vera sans mono:size=10:antialias=true
+! URxvt.boldFont: xft:bitstream vera sans mono:bold:size=10:antialias=true
+!URxvt.font   : xft:DejaVu Sans Mono for Powerline:size=10
+
+
+! Transparency
+! URxvt*transparent:		true
+! URxvt*shading:			10
+
+
+Emacs*useXIM: false
+Emacs*menubar*Foreground:        Gray30
+Emacs*menubar*Background:        Gray75
+!Emacs*.geometry:	80x77
+
+URxvt.letterSpace : -1
+URxvt.termName    : rxvt-256color
+!URxvt.termName     : xterm-256color
+! URxvt.iso14755    : false
+URxvt.inputMethod  : ibus
+
+URxvt.iconFile:    /usr/share/icons/gnome/32x32/apps/terminal.png
+
+URxvt.urgentOnBell: true
+
+URxvt.saveLines   : 15800
+URxvt.scrollBar   : false
+URxvt.scrollstyle : rxvt
+
+!XFT
+Xft.lcdfilter : lcddefault
+Xft.hintstyle : hintslight
+Xft.hinting   : true
+Xft.antialias : true
+Xft.rgba      : rgb
+
+!Fading
+URxvt.fading    : 30
+URxvt.fadeColor : #333333
+
+!Solarized + tangerine + random colours
+!URxvt.cursorColor            : #93A1A1
+URxvt*cursorBlink:            true
+URxvt.cursorColor             : #4d4d4d
+URxvt.pointerColorBackground : #586E75
+URxvt.pointerColorForeground : #93A1A1
+
+!URxvt.background : #101010
+URxvt.background:  #000000
+URxvt.foreground : #f2f2f2
+
+
+!! Argonaut color scheme
+! URxvt*color0: #232323
+! URxvt*color1: #ff000f
+! URxvt*color10: #abe15b
+! URxvt*color11: #ffd242
+! URxvt*color12: #0092ff
+! URxvt*color13: #9a5feb
+! URxvt*color14: #67fff0
+! URxvt*color15: #ffffff
+! URxvt*color2: #8ce10b
+! URxvt*color3: #ffb900
+! URxvt*color4: #008df8
+! URxvt*color5: #6d43a6
+! URxvt*color6: #00d8eb
+! URxvt*color7: #ffffff
+! URxvt*color8: #444444
+! URxvt*color9: #ff2740
+!#define Background_Color #0e1019
+!#define Bold_Color #9e9c9a
+!#define Cursor_Color #ff0018
+!#define Cursor_Text_Color #ff0018
+!#define Foreground_Color #fffaf4
+!#define Selected_Text_Color #ffffff
+!#define Selection_Color #002a3b
+
+
+!! Pro
+URxvt*color0: #000000
+URxvt*color1: #990000
+URxvt*color10: #00d900
+URxvt*color11: #e5e500
+URxvt*color12: #0000ff
+URxvt*color13: #e500e5
+URxvt*color14: #00e5e5
+URxvt*color15: #e5e5e5
+URxvt*color2: #00a600
+URxvt*color3: #999900
+URxvt*color4: #2009db
+URxvt*color5: #b200b2
+URxvt*color6: #00a6b2
+URxvt*color7: #bfbfbf
+URxvt*color8: #666666
+URxvt*color9: #e50000
+#define Background_Color #000000
+#define Bold_Color #ffffff
+#define Cursor_Color #4d4d4d
+#define Cursor_Text_Color #ffffff
+#define Foreground_Color #f2f2f2
+#define Selected_Text_Color #000000
+#define Selection_Color #414141
+
+
+
+
+
+
+
+!! Xterm setting
+*xterm*background:                      #000000
+XTerm*foreground:                       grey75
+xterm*cursorBlink:                      true
+xterm*visualBell:                       false
+XTerm*scaleHeight:                      1.01
+XTerm*termName:                         xterm-256color
+xterm*vt100.initialFont:                5
+
+
+XTerm.VT100.geometry:                   93x29
+XTerm*saveLines:                        15000
+XTerm*metaSendsEscape:                  true
+XTerm*highlightSelection:               true
+XTerm*trimSelection:                    true
+XTerm*cutNewline:                       false
+XTerm*colorBDMode:                      true
+XTerm*colorBD:                          khaki
+
+!XTerm.VT100.font2:                      
+
+!!  Terminal colors
+!black
+XTerm*color0:                           #171717
+XTerm*color8:                           #737373
+!red
+!XTerm*color1:                           #FF5E5E
+!XTerm*color9:                           #FF7878
+!red
+XTerm*color1  :                          #DC322F
+XTerm*color9  :                          #E84F4F
+!green
+XTerm*color2:                           #9CE82B
+XTerm*color10:                          #9ACD32
+!yellow
+XTerm*color3:                           #F0E68C
+XTerm*color11:                          #EEE8AA
+!blue
+XTerm*color4:                           #008AFF
+XTerm*color12:                          #4F98FF
+!magenta
+XTerm*color5:                           #E88CFF
+XTerm*color13:                          #EDA6FF
+!cyan
+XTerm*color6:                           #87CEFA
+XTerm*color14:                          #B0E2FF
+!white
+XTerm*color7:                           #DCDCCC
+XTerm*color15:                          #FFFFFF
+
+
+XTerm*charClass: 3:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48,35:48,58:48,63:48,61:48,44:48,38:48,59:48
+ 
+! *VT100.Translations: #override \
+!               <Key>BackSpace: string(0x7F)\n\
+!               <Key>Delete:    string("\033[3~")\n\
+!               <Key>Home:      string("\033[1~")\n\
+!               <Key>End:       string("\033[4~")
+! *ttyModes: erase ^? 
+
+

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+setxkbmap us -variant dvp
+xmodmap -e "keycode 108 = Alt_R"
+xmodmap ~/.Xmodmap

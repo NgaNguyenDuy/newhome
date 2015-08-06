@@ -1,0 +1,25 @@
+#!/bin/sh
+
+case $1 in
+    'wifi')
+        sudo killall wpa_supplicant
+        ;;
+    'ibus')
+        killall ibus-daemon
+        ;;
+    'mongodb')
+        sudo systemctl stop mongodb
+        ;;
+    'redis')
+        sudo systemctl stop redis
+        ;;
+    'artplus')
+        ~/.bin/stop mongodb && ~/.bin/stop redis
+        ;;
+    'bibitv')
+        sudo systemctl stop nginx && sudo systemctl stop mysqld
+        ;;
+    *)
+        echo 'Helping';
+        ;;
+esac

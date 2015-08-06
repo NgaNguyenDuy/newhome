@@ -1,0 +1,125 @@
+#!/bin/sh
+
+
+red="\033[33;31m";
+green="\033[33;32m";
+yellow="\033[33;33m";
+blue="\033[33;34m";
+magenta="\033[33;35m";
+gray="\033[33;30m";
+cyan="\033[33;36m";
+DATE=`date`;
+
+
+MY_SERVER="root@nodejs.vn"
+SSH_ENV="$HOME/.ssh/environment"
+
+function start_agent {
+    echo "Initialising new SSH agent ..."
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    echo "Succeeded"
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    /usr/bin/ssh-add;
+}
+
+case $1 in
+    'android')
+        echo -n -e $green"Your project name: "; read name;
+        id=""
+        while [[ ! $id =~ ^[0-9]+$ ]]; do
+            echo -n 'Your target ID (Only number): '; read id;
+        done
+        echo -n 'The path to your project: '; read pathPrj
+        echo -n 'Your package project: '; read pkg;
+        echo -n 'Your main activity: '; read act;
+
+        echo -e $blue'Creating project ... ';
+        
+        android create project -n $name -t $id -p $pathPrj -k $pkg -a $act;
+        
+        if [ $? -eq 0 ]; then
+            echo -e "ProjName: $name" \
+                "\nID: $id" \
+                "\nPkg: $pkg" \
+                "\nActivity: $act" \
+                "\nCreated at $DATE" >> $pathPrj'/info.android';
+            echo "DONE. Your project info was located at $pathPrj/info.android.";
+        fi
+        ;;
+    'screen')
+        read type
+        
+        case type in
+            'left')
+                echo "Left in side"
+                ;;
+            'right')
+                echo "right in side"
+                ;;
+            'top')
+                echo "top in side"
+                ;;
+            'bottom')
+                echo "at bottom"
+                ;;
+            *)
+                echo "Helping ..."
+                ;;
+        esac
+        echo 'Starting screen ...';
+        # /home/chris/.bin/startScreen;
+        xrandr --output HDMI1 --off --output LVDS1 --mode 1366x768 --pos 1920x0 --rotate normal --output DP1 --off --output VGA1 --mode 1920x1080 --pos 0x0 --rotate normal
+        sleep 5;
+        ;;
+    'wifi')
+        # bash ~/.bin/chris
+        sudo wpa_supplicant -Dwext -iwlan0 -c/etc/wpa_supplicant.conf -B
+        ;;
+    'ibus')
+        ibus-daemon -dx
+        ;;
+    'mongodb')
+        sudo systemctl start mongodb
+        ;;
+    'redis')
+        sudo systemctl start redis
+        ;;
+    'mysql')
+        sudo systemctl start mysqld
+        ;;
+    'apache')
+        sudo systemctl start apache2
+        ;;
+    'bibitv')
+        sudo systemctl start nginx && sudo systemctl start mysqld && sudo /usr/bin/php-fpm -c /etc/php/fpm-php5.5/php.ini -y /etc/php/fpm-php5.5/php-fpm.conf
+        ;;
+    'music')
+        mpd > /dev/null 2>&1 &
+        ncmpcpp
+        ;;
+    'agent')
+        # if [ -f "${SSH_ENV}" ]; then
+        #     . "${SSH_ENV}" > /dev/null
+        #     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        #         start_agent;
+        #     }
+        # else
+        #     start_agent;
+        # fi
+        eval "$(ssh-agent -s)"
+        ssh-add ~/.ssh/id_rsa
+        ;;
+    'proxy')
+	# Start proxy
+	# -D 6868: Specifies a local "dynamic" application port forwarding.
+	# -f run ssh in background mode
+	# -C request compression of all data (include stdin, stdout, stderr, and data for forwarded X11.)
+	# -N Tell it no commands will be sent.
+	# -q for quiet mode. 
+	ssh -D 6868 -f -C -q -N $MY_SERVER
+	;;
+    *)
+        echo 'Helping';
+        ;;
+esac

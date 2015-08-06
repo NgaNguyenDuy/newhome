@@ -1,0 +1,12 @@
+export SUBLIME=~/src/sublime_text_3
+export NODE_GLOB=~/.npm-global
+export NODE_010=~/.nvm/v0.10.38/bin
+export ARTPLUS=~/myPrj/artplus/codes/ARTPLUS
+export GEM_BIN=~/.gem/ruby/2.0.0/bin
+export PATH=$PATH:~/.bin:$SUBLIME:$NODE_GLOB:$NODE_GLOB/bin:$NODE_010:$GEM_BIN
+
+export PYTHONPATH=$PYTHONPATH:/usr/lib64/python2.7/site-packages
+
+
+# PERSONAL
+export EDITOR="/usr/bin/emc"
